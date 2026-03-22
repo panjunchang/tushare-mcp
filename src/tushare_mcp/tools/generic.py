@@ -4,15 +4,7 @@ from typing import Optional, Dict
 
 import pandas as pd
 from mcp.server.fastmcp import FastMCP
-
-# 先放最小子集，确认流程跑通后你再把完整 SUPPORTED_TOOLS 全部粘进来
-SUPPORTED_TOOLS: Dict[str, str] = {
-    "stock_basic": "获取基础信息数据，包括股票代码、名称、上市日期、退市日期等(ID:25)",
-    "trade_cal": "获取各大交易所交易日历数据(ID:26)",
-    "daily": "获取股票行情数据(ID:27)",
-    "pro_bar": "获取复权行情(ID:109,146)",
-    "fina_indicator": "获取上市公司财务指标数据(ID:79)",
-}
+from .supported_tools import SUPPORTED_TOOLS
 
 
 def register_generic_tools(mcp: FastMCP, pro) -> None:
