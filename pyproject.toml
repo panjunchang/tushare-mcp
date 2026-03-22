@@ -1,0 +1,16 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "tushare-mcp"
+version = "0.1.0"
+description = "MCP server for Tushare"
+author = "panjunchang"
+license = "MIT"
+
+[tool.poetry.dependencies]
+mcp = "*"
+tushare = "*"
+pydantic = "*"
+python-dotenv = "*"
