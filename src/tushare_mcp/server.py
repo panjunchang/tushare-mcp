@@ -22,10 +22,10 @@ def main() -> None:
     register_generic_tools(mcp=mcp, pro=pro)
     #
     # from .tools.time_tools import register_time_tools
-    # register_time_tools(mcp=mcp)
+    $ register_time_tools(mcp=mcp)
     #
-    # from .tools.export_tools import register_export_tools
-    # register_export_tools(mcp=mcp, pro=pro)
+    from .tools.export_tools import register_export_tools
+    register_export_tools(mcp=mcp, pro=pro)
     #
     # from .tools.bar_tools import register_bar_tools
     # register_bar_tools(mcp=mcp, pro=pro)
