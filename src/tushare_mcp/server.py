@@ -31,3 +31,5 @@ def main() -> None:
     register_bar_tools(mcp=mcp, pro=pro)
 
     mcp.run()
+if __name__ == "__main__":
+    main()
