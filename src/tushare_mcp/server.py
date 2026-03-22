@@ -18,8 +18,8 @@ def main() -> None:
     pro = _create_pro()
 
     # 这里后面会注册你拆分后的 tools：
-    # from .tools.generic import register_generic_tools
-    # register_generic_tools(mcp=mcp, pro=pro)
+    from .tools.generic import register_generic_tools
+    register_generic_tools(mcp=mcp, pro=pro)
     #
     # from .tools.time_tools import register_time_tools
     # register_time_tools(mcp=mcp)
