@@ -1,8 +1,25 @@
-from __future__ import annotations
+# Import the necessary modules
+from .load_settings import load_settings
 
-from mcp.server.fastmcp import FastMCP
+# Create pro client from load settings
+class ProClient:
+    def __init__(self):
+        self.settings = load_settings()
+        # Additional initialization can go here
 
-mcp = FastMCP("tushare-mcp")
+    def some_method(self):
+        # Method implementation
+        pass
 
-def main() -> None:
-    mcp.run()
+# Register tools
+class ToolRegistrar:
+    def __init__(self):
+        self.tools = []
+
+    def register_tool(self, tool):
+        self.tools.append(tool)
+
+    def get_tools(self):
+        return self.tools
+
+registrar = ToolRegistrar()
