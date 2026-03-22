@@ -1,25 +1,33 @@
-# Import the necessary modules
-from .load_settings import load_settings
+from __future__ import annotations
 
-# Create pro client from load settings
-class ProClient:
-    def __init__(self):
-        self.settings = load_settings()
-        # Additional initialization can go here
+import tushare as ts
+from mcp.server.fastmcp import FastMCP
 
-    def some_method(self):
-        # Method implementation
-        pass
+from .config import load_settings
 
-# Register tools
-class ToolRegistrar:
-    def __init__(self):
-        self.tools = []
+mcp = FastMCP("Tushare-Financial-Data")
 
-    def register_tool(self, tool):
-        self.tools.append(tool)
 
-    def get_tools(self):
-        return self.tools
+def _create_pro():
+    settings = load_settings()
+    ts.set_token(settings.tushare_token)
+    return ts.pro_api(settings.tushare_token)
 
-registrar = ToolRegistrar()
+
+def main() -> None:
+    pro = _create_pro()
+
+    # 这里后面会注册你拆分后的 tools：
+    # from .tools.generic import register_generic_tools
+    # register_generic_tools(mcp=mcp, pro=pro)
+    #
+    # from .tools.time_tools import register_time_tools
+    # register_time_tools(mcp=mcp)
+    #
+    # from .tools.export_tools import register_export_tools
+    # register_export_tools(mcp=mcp, pro=pro)
+    #
+    # from .tools.bar_tools import register_bar_tools
+    # register_bar_tools(mcp=mcp, pro=pro)
+
+    mcp.run()
